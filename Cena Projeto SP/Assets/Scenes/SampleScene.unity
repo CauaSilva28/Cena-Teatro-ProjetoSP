@@ -1912,7 +1912,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &385970123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5252682845850649624, guid: a86e8acaf138c9540919d86d62404ef8, type: 3}
@@ -4297,7 +4297,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &835696358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7146521406498821007, guid: a86e8acaf138c9540919d86d62404ef8, type: 3}
@@ -6615,7 +6615,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &1354478428 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2519092360280523269, guid: a86e8acaf138c9540919d86d62404ef8, type: 3}
@@ -6802,7 +6802,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &1421910612
 GameObject:
   m_ObjectHideFlags: 0
@@ -7708,7 +7708,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &1542319870 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7333631254909853010, guid: a86e8acaf138c9540919d86d62404ef8, type: 3}
@@ -7847,7 +7847,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &1588252140 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3410185793394415013, guid: a86e8acaf138c9540919d86d62404ef8, type: 3}
@@ -8210,7 +8210,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &1722670445
 GameObject:
   m_ObjectHideFlags: 0
@@ -8359,7 +8359,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &1763871057 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1644373995442134, guid: 0187bdd962557471faee34c9b592135c, type: 3}
@@ -8386,7 +8386,7 @@ MonoBehaviour:
   transicaoFalas: {fileID: 1212098564}
   transicaoLari: {fileID: 1250024699}
   transicaoRa: {fileID: 1941554777}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
 --- !u!1 &1773354633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3455292422214010178, guid: a86e8acaf138c9540919d86d62404ef8, type: 3}
@@ -9086,7 +9086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ElementosFalas: {fileID: 1594953665}
   Barragem: {fileID: 1740394025}
-  movimentoPerso: {fileID: 1867545659}
+  movimentoPerso: {fileID: 787544055}
   teclaInicioDialogo: {fileID: 607902069}
   falas: {fileID: 1212098562}
   transicaoFalas: {fileID: 1212098564}
