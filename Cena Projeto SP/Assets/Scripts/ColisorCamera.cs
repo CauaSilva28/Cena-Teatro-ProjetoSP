@@ -5,7 +5,6 @@ using UnityEngine;
 public class ColisorCamera : MonoBehaviour
 {
     public Transform alvo;
-    public Transform posicaoCamera;
     public float ajusteCamera;
 
 
@@ -24,11 +23,6 @@ public class ColisorCamera : MonoBehaviour
         {
             // Se houver colisão, ajusta a posição da câmera
             transform.position = hit.point + transform.forward * ajusteCamera;
-        }
-        else
-        {
-            // Se não houver colisão, retorna à posição inicial
-            transform.position = Vector3.Lerp(transform.position, posicaoCamera.position, Time.deltaTime);
         }
     }
 }

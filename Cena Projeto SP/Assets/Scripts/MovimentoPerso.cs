@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MovimentoPerso : MonoBehaviour
 {
+    public Transform camera;
+
     private float velocidade = 5f;
     
     private Vector3 moveDirection = Vector3.zero;
@@ -37,7 +39,7 @@ public class MovimentoPerso : MonoBehaviour
         if(!emAreaDeFala){
             velocidade = 5f;
             //Movimentação-------------------------------
-            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
+            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)){
                 anim.SetInteger("transition", 1);
                 somPassos.SetActive(true);
             }
@@ -52,13 +54,13 @@ public class MovimentoPerso : MonoBehaviour
             velocidade = 0;
         }
 
-        moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical")) * velocidade;
-        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) ;
+        moveDirection = camera.TransformDirection(moveDirection);
 
-        //Gravidade-----------------------------
+        // Gravidade-----------------------------
         if (controller.isGrounded)
         {
-            velocidadeVertical = 0f; // Reseta a velocidade vertical se estiver no chão
+            velocidadeVertical = 0f; // Reseta a velocidade vertical se estiver no chao
         }
         else
         {
@@ -66,18 +68,13 @@ public class MovimentoPerso : MonoBehaviour
         }
 
         moveDirection.y = velocidadeVertical;
-        //FIM Gravidade-----------------------------
-    
-        controller.Move(moveDirection * Time.deltaTime);
-        
-        Vector3 posicaoAtual = transform.position;
 
-        if (posicaoAtual.y > 9.85f)
-        {
-            posicaoAtual.y = 9.85f;
-            transform.position = posicaoAtual;
+        controller.Move(moveDirection * velocidade * Time.deltaTime);
+
+        if(moveDirection.x != 0 || moveDirection.z != 0){
+            Vector3 targetDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDirection), Time.deltaTime * 8);
         }
-        //FIM Movimentação-------------------------------
 
         //Rotação-------------------------------
         if (Input.GetKey(KeyCode.A))
