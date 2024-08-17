@@ -7,7 +7,8 @@ public class MovimentoPerso : MonoBehaviour
 {
     public Transform camera;
 
-    private float velocidade = 5f;
+    private float velocidade;
+    private float veloPulo = 2f;
     
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
@@ -17,6 +18,7 @@ public class MovimentoPerso : MonoBehaviour
     public Text frasesTela;
 
     public GameObject somPassos;
+    public GameObject somCorrendo;
     public AudioSource somTrancada;
 
     float rotationSpeed = 150f;
@@ -36,16 +38,33 @@ public class MovimentoPerso : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movimentacao();
+        Gravidade();
+        Rotacao();
+    }
+
+    //Funções
+
+    private void Movimentacao(){
         if(!emAreaDeFala){
-            velocidade = 5f;
-            //Movimentação-------------------------------
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)){
                 anim.SetInteger("transition", 1);
                 somPassos.SetActive(true);
+                velocidade = 6f;
             }
             else{
                 anim.SetInteger("transition", 0);
                 somPassos.SetActive(false);
+            }
+
+            if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift)){
+                anim.SetInteger("transition", 2);
+                somCorrendo.SetActive(true);
+                somPassos.SetActive(false);
+                velocidade = 10f;
+            }
+            else{
+                somCorrendo.SetActive(false);
             }
         }
         else{
@@ -56,27 +75,31 @@ public class MovimentoPerso : MonoBehaviour
 
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) ;
         moveDirection = camera.TransformDirection(moveDirection);
+    }
 
-        // Gravidade-----------------------------
+    private void Gravidade(){
         if (controller.isGrounded)
         {
-            velocidadeVertical = 0f; // Reseta a velocidade vertical se estiver no chao
+            velocidadeVertical = 0f;
         }
         else
         {
-            velocidadeVertical -= gravidade * Time.deltaTime; // Aplica a gravidade
+            velocidadeVertical -= gravidade * Time.deltaTime;
         }
 
         moveDirection.y = velocidadeVertical;
 
         controller.Move(moveDirection * velocidade * Time.deltaTime);
 
-        if(moveDirection.x != 0 || moveDirection.z != 0){
+        // Gira o personagem para a direção do movimento
+        if (moveDirection.x != 0 || moveDirection.z != 0)
+        {
             Vector3 targetDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetDirection), Time.deltaTime * 8);
         }
+    }
 
-        //Rotação-------------------------------
+    private void Rotacao(){
         if (Input.GetKey(KeyCode.A))
         {
             Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, -rotationSpeed, 0);
@@ -86,8 +109,9 @@ public class MovimentoPerso : MonoBehaviour
             Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, rotationSpeed, 0);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
         }
-        //FIM Rotação-------------------------------
     }
+
+    //Fim funções
 
     void OnTriggerEnter(Collider other){
         if(other.gameObject.CompareTag("Porta")){
