@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class VisaoInimigos : MonoBehaviour
 {
-    public Light enemySpotlight; // Spot Light do inimigo
-    public Color originalColor = Color.white; // Cor original da luz
-    public Color alertColor = Color.red; // Cor de alerta (vermelha)
-    public float detectionRange = 10f; // Alcance da visão do inimigo
-    public Transform player; // Referência ao jogador
+    public Light enemySpotlight;
+    public Color originalColor = Color.white;
+    public Color alertColor = Color.red;
+    public float detectionRange = 10f;
+    public Transform player;
+    public LayerMask LayersBloqueadas;
 
     void Start()
     {
-        // Define a cor original do Spot Light
         if (enemySpotlight != null)
         {
             enemySpotlight.color = originalColor;
@@ -36,7 +36,7 @@ public class VisaoInimigos : MonoBehaviour
 
     bool PlayerNaArea()
     {
-        // Calcula a direção do inimigo para o jogador
+         // Calcula a direção do inimigo para o jogador
         Vector3 directionToPlayer = player.position - transform.position;
 
         // Verifica se o jogador está dentro do cone de visão do Spot Light
@@ -44,8 +44,13 @@ public class VisaoInimigos : MonoBehaviour
 
         if (angleToPlayer < enemySpotlight.spotAngle / 2 && directionToPlayer.magnitude <= detectionRange)
         {
-            return true;
+            // Verifica se há algum objeto na linha de visão que está em uma layer que bloqueia a visão
+            if (!Physics.Linecast(transform.position, player.position, LayersBloqueadas))
+            {
+                return true; // Retorna verdadeiro se não houver bloqueio
+            }
         }
-        return false;
+
+        return false; // Retorna falso se o jogador estiver fora da visão ou bloqueado
     }
 }
