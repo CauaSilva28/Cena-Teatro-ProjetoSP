@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class pegarMeleca : MonoBehaviour
@@ -9,29 +9,17 @@ public class pegarMeleca : MonoBehaviour
 {
     public GameObject musica;
     public GameObject Bloqueio;
-    public GameObject mensagem;
     public float contaMuco = 0;
-    public TextMeshProUGUI  txtmucopego;
+    public Text txtmucopego;
     public GameObject mucopego;
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Lari")
-        {
-            Destroy(collision.gameObject);
-            contaMuco ++;
-            txtmucopego.text="Muco pego: " + contaMuco;
-        }
         if (collision.gameObject.tag == "Pessoa")
         {
             Cursor.lockState = CursorLockMode.None;
-                        Cursor.visible = true;
+            Cursor.visible = true;
             SceneManager.LoadScene("Perdeu");
-        }
-          if (collision.gameObject.tag == "Block")
-        {
-           mensagem.SetActive(true);
-            Invoke("DestroyObject", 2f);
         }
         if (contaMuco == 10)
         {
@@ -42,24 +30,30 @@ public class pegarMeleca : MonoBehaviour
         {
             SceneManager.LoadScene("escritorio");
         }
-        
     }
-    void DestroyObject()
+
+    void OnTriggerEnter(Collider other)
     {
-       mensagem.SetActive(false);
+        if (other.gameObject.tag == "Lari")
+        {
+            Destroy(other.gameObject);
+            contaMuco++;
+            txtmucopego.text = "Muco pego: " + contaMuco;
+        }
     }
-    void OnTriggerStay(Collider batidao)    
-{
-        if (batidao.gameObject.tag == "som")
+
+    void OnTriggerStay(Collider other)    
+    {
+        if (other.gameObject.tag == "som")
         {
             musica.SetActive(true);
         }
     }
 
-  void OnTriggerExit(Collider batidao)    
+  void OnTriggerExit(Collider other)    
   {
         musica.SetActive(false);
-    }
+   }
 
-    }
+}
 

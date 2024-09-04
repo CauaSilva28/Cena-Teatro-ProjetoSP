@@ -26,6 +26,8 @@ public class MovimentoPerso : MonoBehaviour
     private float gravidade = 9.8f;
     private float velocidadeVertical = 0f;
 
+    public string textoBarragem;
+
     public bool emAreaDeFala;
     // Start is called before the first frame update
     void Start()
@@ -141,7 +143,7 @@ public class MovimentoPerso : MonoBehaviour
 
     void OnCollisionStay(Collision collider){
         if(collider.gameObject.CompareTag("Barragem")){
-            frasesTela.text = "Fale com o atendente";
+            frasesTela.text = textoBarragem;
             frasesTela.enabled = true;
         }
     }

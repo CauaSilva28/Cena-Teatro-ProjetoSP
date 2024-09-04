@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogoAtendente : MonoBehaviour
+public class Dialogos : MonoBehaviour
 {
     public GameObject ElementosFalas;
     public GameObject Barragem;
@@ -13,27 +13,21 @@ public class DialogoAtendente : MonoBehaviour
     public Text teclaInicioDialogo;
     public Text falas;
 
+    public string textoTeclaApertar;
+
     public Animator transicaoFalas;
-    public Animator transicaoAten;
-    public Animator transicaoLari;
 
     private float tempoIniciarFala = 0f;
 
     private bool inicioDialogo = false;
 
-    private string[] dialogo = {
-        "Boa tarde! seja bem vinda ao teatro municipal de São Paulo...",
-        "Boa tarde! Me chamo Larissa e estou em busca de uma rã criminosa, viu alguma por aqui?",
-        "Hoje vi diversas rãs diferentes entrando no teatro, uma em específico está soltando gosmas verdes por aí.",
-        "Essa mesmo que estou atrás! Irei procurar pelo teatro.",
-        "Ok, boa sorte!"
-    };
+    public string[] dialogo;
 
-    private Animator[] animarElementos;
+    public Animator[] animarElementos;
 
     void Start()
     {
-        animarElementos = new Animator[] { transicaoAten, transicaoLari, transicaoAten, transicaoLari, transicaoAten };
+        
     }
 
     void Update()
@@ -85,7 +79,7 @@ public class DialogoAtendente : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             teclaInicioDialogo.enabled = true;
-            teclaInicioDialogo.text = "Aperte \"E\" para falar com o atendente";
+            teclaInicioDialogo.text = textoTeclaApertar;
             if (Input.GetKey(KeyCode.E))
             {
                 inicioDialogo = true;
