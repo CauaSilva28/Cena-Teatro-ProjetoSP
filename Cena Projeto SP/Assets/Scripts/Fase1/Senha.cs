@@ -5,7 +5,7 @@ public class Senha : MonoBehaviour
 {
     public Button[] buttons; 
     public GameObject painelSenha;
-     private string password = "231"; 
+    private string password = "231"; 
     private string input = ""; 
     public GameObject win;
     public GameObject lose;

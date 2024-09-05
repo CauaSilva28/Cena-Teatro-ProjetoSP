@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1.51
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 94d094eed4e6883488f9bf731a7e371a, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6075488e92597c9478c885b7b54674a3, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -568,9 +568,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.99215686, g: 0.6576317, b: 0.09019605, a: 1}
-  m_Intensity: 2.1
-  m_Range: 16.18
+  m_Color: {r: 1, g: 0.76815015, b: 0.3726415, a: 1}
+  m_Intensity: 3
+  m_Range: 18.81
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1812,8 +1812,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: e558acf0af956de41b0575b6a941134c, type: 3}
+    m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 4
@@ -3192,8 +3192,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.99215686, g: 0.6576317, b: 0.09019605, a: 1}
-  m_Intensity: 3.98
-  m_Range: 27.98
+  m_Intensity: 3.1
+  m_Range: 41.88
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3506,12 +3506,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 35
-    m_FontStyle: 3
+    m_Font: {fileID: 12800000, guid: e558acf0af956de41b0575b6a941134c, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 60
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5089,12 +5089,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 35
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: e558acf0af956de41b0575b6a941134c, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 50
+    m_MaxSize: 60
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5683,9 +5683,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.99215686, g: 0.6576317, b: 0.09019605, a: 1}
-  m_Intensity: 2.1
-  m_Range: 16.18
+  m_Color: {r: 1, g: 0.76815015, b: 0.3726415, a: 1}
+  m_Intensity: 3
+  m_Range: 18.81
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6717,7 +6717,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402654807}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000004502967, y: 0.9965968, z: 0.0824311, w: -0.000000054441145}
+  m_LocalRotation: {x: 0.000000007339649, y: 0.9965968, z: 0.0824311, w: -0.00000008873679}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8553,9 +8553,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.99215686, g: 0.6576317, b: 0.09019605, a: 1}
-  m_Intensity: 2.1
-  m_Range: 16.18
+  m_Color: {r: 1, g: 0.76815015, b: 0.3726415, a: 1}
+  m_Intensity: 3
+  m_Range: 18.81
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -8983,9 +8983,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.99215686, g: 0.6576317, b: 0.09019605, a: 1}
-  m_Intensity: 2.1
-  m_Range: 16.18
+  m_Color: {r: 1, g: 0.76815015, b: 0.3726415, a: 1}
+  m_Intensity: 3
+  m_Range: 18.81
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

@@ -8,7 +8,6 @@ public class MovimentoPerso : MonoBehaviour
     public Transform camera;
 
     private float velocidade;
-    private float veloPulo = 2f;
     
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;

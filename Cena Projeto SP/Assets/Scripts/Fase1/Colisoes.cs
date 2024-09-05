@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class pegarMeleca : MonoBehaviour
+public class Colisoes : MonoBehaviour
 
 {
     public GameObject musica;
@@ -13,22 +13,40 @@ public class pegarMeleca : MonoBehaviour
     public Text txtmucopego;
     public GameObject mucopego;
 
+    public GameObject telaGameOver;
+    public GameObject Audios;
+
+    public string textoBlock;
+
     void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.tag == "Block"){
+            GetComponent<MovimentoPerso>().frasesTela.enabled = true;
+            GetComponent<MovimentoPerso>().frasesTela.text = textoBlock; 
+        }
+
         if (collision.gameObject.tag == "Pessoa")
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            SceneManager.LoadScene("Perdeu");
+            Derrota();
         }
+
         if (contaMuco == 10)
         {
             Destroy(Bloqueio);
             mucopego.SetActive(false);
         }
-       if (collision.gameObject.tag == "Parte2")
+
+        if (collision.gameObject.tag == "Parte2")
         {
             SceneManager.LoadScene("escritorio");
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.tag == "Block"){
+            GetComponent<MovimentoPerso>().frasesTela.enabled = false;
+            GetComponent<MovimentoPerso>().frasesTela.text = ""; 
         }
     }
 
@@ -38,7 +56,7 @@ public class pegarMeleca : MonoBehaviour
         {
             Destroy(other.gameObject);
             contaMuco++;
-            txtmucopego.text = "Muco pego: " + contaMuco;
+            txtmucopego.text = "Muco pego: " + contaMuco + "/10";
         }
     }
 
@@ -50,10 +68,18 @@ public class pegarMeleca : MonoBehaviour
         }
     }
 
-  void OnTriggerExit(Collider other)    
-  {
+    void OnTriggerExit(Collider other)    
+    {
         musica.SetActive(false);
-   }
+    }
+
+    private void Derrota(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        telaGameOver.SetActive(true);
+        Audios.SetActive(false);
+        GetComponent<MovimentoPerso>().enabled = true;
+    }
 
 }
 
