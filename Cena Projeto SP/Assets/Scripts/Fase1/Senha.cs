@@ -11,13 +11,24 @@ public class Senha : MonoBehaviour
     public GameObject lose;
     public GameObject porta;
 
-    void Sair()
+    public Text frasesTeclas;
+
+    private bool abrirTelaSenha;
+
+    public void Sair()
     {
         painelSenha.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         win.SetActive(false);
         lose.SetActive(false);
     }
+    public void Reiniciar()
+    {
+        input = "";
+        win.SetActive(false);
+        lose.SetActive(false);
+    }
+
     void Start()
     {
         for (int i = 0; i < buttons.Length; i++)
@@ -26,7 +37,20 @@ public class Senha : MonoBehaviour
             buttons[i].onClick.AddListener(() => OnButtonClicked(buttonNumber));
         }
     }
-void OnButtonClicked(int buttonNumber)
+
+    void Update()
+    {
+        if (abrirTelaSenha)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                painelSenha.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
+    }
+
+    void OnButtonClicked(int buttonNumber)
     {
         input += buttonNumber.ToString();
 
@@ -42,6 +66,26 @@ void OnButtonClicked(int buttonNumber)
                 lose.SetActive(true);
             }
             input = "";
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            frasesTeclas.enabled = true;
+            frasesTeclas.text = "Aperte \"F\" para digitar a senha";
+            abrirTelaSenha = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            frasesTeclas.enabled = false;
+            frasesTeclas.text = "";
+            abrirTelaSenha = false;
         }
     }
 }

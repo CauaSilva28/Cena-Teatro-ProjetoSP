@@ -8,13 +8,13 @@ TagManager:
   - Porta
   - Barragem
   - Saida
-  - Guts
   - Block
   - Parte2
   - senha
   - Lari
   - crime
   - Pessoa
+  - musicas
   layers:
   - Default
   - TransparentFX

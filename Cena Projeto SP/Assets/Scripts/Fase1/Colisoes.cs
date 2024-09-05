@@ -21,8 +21,11 @@ public class Colisoes : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Block"){
-            GetComponent<MovimentoPerso>().frasesTela.enabled = true;
-            GetComponent<MovimentoPerso>().frasesTela.text = textoBlock; 
+            if (contaMuco < 10)
+            {
+                GetComponent<MovimentoPerso>().frasesTela.enabled = true;
+                GetComponent<MovimentoPerso>().frasesTela.text = textoBlock;
+            }
         }
 
         if (collision.gameObject.tag == "Pessoa")
@@ -30,7 +33,7 @@ public class Colisoes : MonoBehaviour
             Derrota();
         }
 
-        if (contaMuco == 10)
+        if (contaMuco >= 10)
         {
             Destroy(Bloqueio);
             mucopego.SetActive(false);
@@ -58,11 +61,8 @@ public class Colisoes : MonoBehaviour
             contaMuco++;
             txtmucopego.text = "Muco pego: " + contaMuco + "/10";
         }
-    }
 
-    void OnTriggerStay(Collider other)    
-    {
-        if (other.gameObject.tag == "som")
+        if (other.gameObject.tag == "musicas")
         {
             musica.SetActive(true);
         }
@@ -70,7 +70,10 @@ public class Colisoes : MonoBehaviour
 
     void OnTriggerExit(Collider other)    
     {
-        musica.SetActive(false);
+        if (other.gameObject.tag == "musicas")
+        {
+            musica.SetActive(false);
+        }
     }
 
     private void Derrota(){
