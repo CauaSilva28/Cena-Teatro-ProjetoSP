@@ -8,6 +8,8 @@ public class MovimentoPerso : MonoBehaviour
     public Transform camera;
 
     private float velocidade;
+    public float veloCorrendo;
+    public float veloAndando;
     
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
@@ -51,7 +53,7 @@ public class MovimentoPerso : MonoBehaviour
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)){
                 anim.SetInteger("transition", 1);
                 somPassos.SetActive(true);
-                velocidade = 6f;
+                velocidade = veloAndando;
             }
             else{
                 anim.SetInteger("transition", 0);
@@ -62,7 +64,7 @@ public class MovimentoPerso : MonoBehaviour
                 anim.SetInteger("transition", 2);
                 somCorrendo.SetActive(true);
                 somPassos.SetActive(false);
-                velocidade = 10f;
+                velocidade = veloCorrendo;
             }
             else{
                 somCorrendo.SetActive(false);

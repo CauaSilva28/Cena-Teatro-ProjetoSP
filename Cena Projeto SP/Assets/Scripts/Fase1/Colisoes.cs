@@ -16,6 +16,10 @@ public class Colisoes : MonoBehaviour
     public GameObject telaGameOver;
     public GameObject Audios;
 
+    public GameObject telaTransicaoTeleporte;
+
+    public Transform entradaEscritorio;
+
     public string textoBlock;
 
     void OnCollisionEnter(Collision collision)
@@ -37,11 +41,6 @@ public class Colisoes : MonoBehaviour
         {
             Destroy(Bloqueio);
             mucopego.SetActive(false);
-        }
-
-        if (collision.gameObject.tag == "Parte2")
-        {
-            SceneManager.LoadScene("escritorio");
         }
     }
 
@@ -66,6 +65,11 @@ public class Colisoes : MonoBehaviour
         {
             musica.SetActive(true);
         }
+
+        if (other.gameObject.tag == "Parte2Fase1")
+        {
+            StartCoroutine(teleportarEscritorio());
+        }
     }
 
     void OnTriggerExit(Collider other)    
@@ -82,6 +86,28 @@ public class Colisoes : MonoBehaviour
         telaGameOver.SetActive(true);
         Audios.SetActive(false);
         GetComponent<MovimentoPerso>().enabled = true;
+    }
+
+    IEnumerator teleportarEscritorio()
+    {
+        telaTransicaoTeleporte.SetActive(true);
+        telaTransicaoTeleporte.GetComponent<Animator>().SetInteger("transition", 1);
+
+        yield return new WaitForSeconds(1f);
+
+        Vector3 posicaoPlayerEscritorio = entradaEscritorio.position;
+        transform.position = posicaoPlayerEscritorio;
+        GetComponent<MovimentoPerso>().enabled = false;
+
+        yield return new WaitForSeconds(1f);
+
+        telaTransicaoTeleporte.GetComponent<Animator>().SetInteger("transition", 2);
+
+        yield return new WaitForSeconds(1f);
+
+        GetComponent<MovimentoPerso>().enabled = true;
+        telaTransicaoTeleporte.GetComponent<Animator>().SetInteger("transition", 0);
+        telaTransicaoTeleporte.SetActive(false);
     }
 
 }

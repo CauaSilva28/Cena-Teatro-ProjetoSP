@@ -9,12 +9,12 @@ TagManager:
   - Barragem
   - Saida
   - Block
-  - Parte2
   - senha
   - Lari
   - crime
   - Pessoa
   - musicas
+  - Parte2Fase1
   layers:
   - Default
   - TransparentFX
