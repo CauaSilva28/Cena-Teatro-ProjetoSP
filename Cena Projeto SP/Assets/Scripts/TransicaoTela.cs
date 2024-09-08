@@ -11,16 +11,7 @@ public class TransicaoTela : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(imperdirRepeticao == 0f){
-            StartCoroutine(tempoTransicaoDaTela());
-            imperdirRepeticao = 1f;
-        }
+        StartCoroutine(tempoTransicaoDaTela());
     }
 
     IEnumerator tempoTransicaoDaTela(){

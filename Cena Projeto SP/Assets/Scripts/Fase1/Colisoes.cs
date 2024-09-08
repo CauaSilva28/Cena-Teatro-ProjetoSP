@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Colisoes : MonoBehaviour
 
@@ -15,6 +14,8 @@ public class Colisoes : MonoBehaviour
 
     public GameObject telaGameOver;
     public GameObject Audios;
+
+    public GameObject AudioPessoas;
 
     public GameObject telaTransicaoTeleporte;
 
@@ -58,7 +59,7 @@ public class Colisoes : MonoBehaviour
         {
             Destroy(other.gameObject);
             contaMuco++;
-            txtmucopego.text = "Muco pego: " + contaMuco + "/10";
+            txtmucopego.text = "Mucos pegos: " + contaMuco + "/10";
         }
 
         if (other.gameObject.tag == "musicas")
@@ -66,7 +67,7 @@ public class Colisoes : MonoBehaviour
             musica.SetActive(true);
         }
 
-        if (other.gameObject.tag == "Parte2Fase1")
+        if (other.gameObject.tag == "Parte2")
         {
             StartCoroutine(teleportarEscritorio());
         }
@@ -98,14 +99,18 @@ public class Colisoes : MonoBehaviour
         Vector3 posicaoPlayerEscritorio = entradaEscritorio.position;
         transform.position = posicaoPlayerEscritorio;
         GetComponent<MovimentoPerso>().enabled = false;
+        AudioPessoas.SetActive(false);
 
         yield return new WaitForSeconds(1f);
 
         telaTransicaoTeleporte.GetComponent<Animator>().SetInteger("transition", 2);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         GetComponent<MovimentoPerso>().enabled = true;
+
+        yield return new WaitForSeconds(0.5f);
+
         telaTransicaoTeleporte.GetComponent<Animator>().SetInteger("transition", 0);
         telaTransicaoTeleporte.SetActive(false);
     }

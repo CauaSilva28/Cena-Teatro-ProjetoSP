@@ -20,6 +20,7 @@ public class MovimentoPerso : MonoBehaviour
 
     public GameObject somPassos;
     public GameObject somCorrendo;
+    public GameObject somAndandoAgua;
     public AudioSource somTrancada;
 
     float rotationSpeed = 150f;
@@ -30,6 +31,7 @@ public class MovimentoPerso : MonoBehaviour
     public string textoBarragem;
 
     public bool emAreaDeFala;
+    private bool naAgua = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,21 +52,41 @@ public class MovimentoPerso : MonoBehaviour
 
     private void Movimentacao(){
         if(!emAreaDeFala){
+            if(naAgua){
+                velocidade = 4f;
+                somPassos.SetActive(false);
+                somCorrendo.SetActive(false);
+            }
+            else{
+                somAndandoAgua.SetActive(false);
+            }
+
             if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)){
-                anim.SetInteger("transition", 1);
-                somPassos.SetActive(true);
-                velocidade = veloAndando;
+                anim.SetInteger("transition", 1); 
+                if(!naAgua){
+                    somPassos.SetActive(true);
+                    velocidade = veloAndando;
+                }
+                else{
+                    somAndandoAgua.SetActive(true);
+                }
             }
             else{
                 anim.SetInteger("transition", 0);
                 somPassos.SetActive(false);
+                somAndandoAgua.SetActive(false);
             }
 
             if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift)){
                 anim.SetInteger("transition", 2);
-                somCorrendo.SetActive(true);
-                somPassos.SetActive(false);
-                velocidade = veloCorrendo;
+                somCorrendo.SetActive(true);       
+                if(!naAgua){
+                    somPassos.SetActive(false);
+                    velocidade = veloCorrendo;
+                }
+                else{
+                    somAndandoAgua.SetActive(true);
+                }
             }
             else{
                 somCorrendo.SetActive(false);
@@ -84,6 +106,15 @@ public class MovimentoPerso : MonoBehaviour
         if (controller.isGrounded)
         {
             velocidadeVertical = 0f;
+
+            if(Input.GetKey(KeyCode.Space)){
+                velocidadeVertical = 2f;
+                anim.SetBool("pulando", true);
+            }
+
+            if(velocidadeVertical <= 0){
+                anim.SetBool("pulando", false);
+            }
         }
         else
         {
@@ -120,6 +151,9 @@ public class MovimentoPerso : MonoBehaviour
         if(other.gameObject.CompareTag("Porta")){
             somTrancada.Play();
         }
+        if(other.gameObject.CompareTag("Agua")){
+            naAgua = true;
+        }
     }
 
     void OnTriggerStay(Collider other){
@@ -139,6 +173,9 @@ public class MovimentoPerso : MonoBehaviour
         if(other.gameObject.CompareTag("Porta")){
             frasesTela.text = "";
             frasesTela.enabled = false;
+        }
+        if(other.gameObject.CompareTag("Agua")){
+            naAgua = false;
         }
     }
 
