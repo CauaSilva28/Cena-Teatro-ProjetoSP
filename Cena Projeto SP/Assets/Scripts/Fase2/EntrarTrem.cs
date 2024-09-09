@@ -86,11 +86,7 @@ public class EntrarTrem : MonoBehaviour
         telaTransicao.SetActive(true);
         telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
 
-        yield return new WaitForSeconds(3f);
-
-        cameraTrem.GetComponent<AudioListener>().enabled = false;
-
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
 
         SceneManager.LoadScene("Fase3");
     }
