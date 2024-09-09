@@ -16,6 +16,7 @@ TagManager:
   - musicas
   - Agua
   - Parte2
+  - DestruirCarro
   layers:
   - Default
   - TransparentFX

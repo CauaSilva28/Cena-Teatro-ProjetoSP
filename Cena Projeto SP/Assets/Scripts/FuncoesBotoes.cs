@@ -28,6 +28,16 @@ public class FuncoesBotoes : MonoBehaviour
         StartCoroutine(iniciarFase());
         somClick.Play();
     }
+    public void IniciarFase4(){
+        numFase = 4;
+        StartCoroutine(iniciarFase());
+        somClick.Play();
+    }
+    public void IniciarFase5(){
+        numFase = 5;
+        StartCoroutine(iniciarFase());
+        somClick.Play();
+    }
 
     public void AbrirTelaFases(){
         telaMenu.SetActive(false);
