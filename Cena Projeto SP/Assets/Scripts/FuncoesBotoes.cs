@@ -11,8 +11,21 @@ public class FuncoesBotoes : MonoBehaviour
     public GameObject telaMenu;
     public GameObject telaFases;
 
+    private int numFase;
+
     public void IniciarJogo(){
-        StartCoroutine(iniciarJogo());
+        numFase = 1;
+        StartCoroutine(iniciarFase());
+        somClick.Play();
+    }
+    public void IniciarFase2(){
+        numFase = 2;
+        StartCoroutine(iniciarFase());
+        somClick.Play();
+    }
+    public void IniciarFase3(){
+        numFase = 3;
+        StartCoroutine(iniciarFase());
         somClick.Play();
     }
 
@@ -28,6 +41,11 @@ public class FuncoesBotoes : MonoBehaviour
         somClick.Play();
     }
 
+    public void SairParaMenu(){
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
+    }
+
     public void SairJogo(){
         Application.Quit();
         somClick.Play();
@@ -35,14 +53,15 @@ public class FuncoesBotoes : MonoBehaviour
 
     public void Reiniciar(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 
-    IEnumerator iniciarJogo(){
+    IEnumerator iniciarFase(){
         telaTransicao.SetActive(true);
         telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
 
         yield return new WaitForSeconds(5f);
 
-        SceneManager.LoadScene("Fase1");
+        SceneManager.LoadScene("Fase" + numFase);
     }
 }

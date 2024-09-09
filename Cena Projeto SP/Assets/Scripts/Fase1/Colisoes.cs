@@ -21,6 +21,8 @@ public class Colisoes : MonoBehaviour
 
     public Transform entradaEscritorio;
 
+    public Pausar pauseJogo;
+
     public string textoBlock;
 
     void OnCollisionEnter(Collision collision)
@@ -82,11 +84,12 @@ public class Colisoes : MonoBehaviour
     }
 
     private void Derrota(){
+        pauseJogo.perdendo = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         telaGameOver.SetActive(true);
         Audios.SetActive(false);
-        GetComponent<MovimentoPerso>().enabled = true;
+        GetComponent<MovimentoPerso>().emAreaDeFala = true;
     }
 
     IEnumerator teleportarEscritorio()

@@ -24,6 +24,8 @@ public class LerLivro : MonoBehaviour
 
     public GameObject telaTransicao;
 
+    public Pausar pauseJogo;
+
     private bool lerLivro = false;
     private bool livroAberto = false;
     private bool impedirVariasFalas = false;
@@ -55,6 +57,7 @@ public class LerLivro : MonoBehaviour
     IEnumerator fimDaFase(){
         ElementosFalas.SetActive(true);
         telaLivro.SetActive(false);
+        pauseJogo.perdendo = true;
 
         yield return new WaitForSeconds(1f);
 

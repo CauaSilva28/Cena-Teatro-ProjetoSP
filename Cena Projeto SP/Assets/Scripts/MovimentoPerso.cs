@@ -32,6 +32,8 @@ public class MovimentoPerso : MonoBehaviour
 
     public bool emAreaDeFala;
     private bool naAgua = false;
+
+    public bool pausado;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,9 +45,16 @@ public class MovimentoPerso : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movimentacao();
-        Gravidade();
-        Rotacao();
+        if(!pausado){
+            Movimentacao();
+            Gravidade();
+            Rotacao();
+        }
+        else{
+            somPassos.SetActive(false);
+            somAndandoAgua.SetActive(false);
+            somCorrendo.SetActive(false);
+        }
     }
 
     //Funções
@@ -95,6 +104,8 @@ public class MovimentoPerso : MonoBehaviour
         else{
             anim.SetInteger("transition", 0);
             somPassos.SetActive(false);
+            somAndandoAgua.SetActive(false);
+            somCorrendo.SetActive(false);
             velocidade = 0;
         }
 
