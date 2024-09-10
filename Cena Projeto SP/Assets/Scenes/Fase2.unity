@@ -6154,7 +6154,7 @@ GameObject:
   - component: {fileID: 515679181}
   - component: {fileID: 515679180}
   - component: {fileID: 515679179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: catraca (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7550,7 +7550,7 @@ Transform:
   m_GameObject: {fileID: 630802306}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.6, y: 16.9, z: -80.8}
+  m_LocalPosition: {x: -40.23, y: 16.9, z: -80.8}
   m_LocalScale: {x: 84.646286, y: 33.202248, z: 2.7641575}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7845,7 +7845,7 @@ GameObject:
   - component: {fileID: 692696269}
   - component: {fileID: 692696268}
   - component: {fileID: 692696267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: catraca (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12455,7 +12455,7 @@ Transform:
   m_GameObject: {fileID: 986863173}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.2, y: 16.9, z: -266.31}
+  m_LocalPosition: {x: -46.22, y: 16.9, z: -266.31}
   m_LocalScale: {x: 84.646286, y: 33.202248, z: 2.7641575}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13627,7 +13627,7 @@ GameObject:
   - component: {fileID: 1058661770}
   - component: {fileID: 1058661769}
   - component: {fileID: 1058661768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: catraca (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15141,7 +15141,7 @@ GameObject:
   - component: {fileID: 1105896616}
   - component: {fileID: 1105896615}
   - component: {fileID: 1105896614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: catraca
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15316,7 +15316,7 @@ GameObject:
   - component: {fileID: 1107149117}
   - component: {fileID: 1107149116}
   - component: {fileID: 1107149115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: catraca (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16009,7 +16009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155090645}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03253741, y: -0.000000017331098, z: 5.642078e-10, w: 0.99947053}
+  m_LocalRotation: {x: 0.03253741, y: 0.000000017331102, z: -5.642079e-10, w: 0.99947053}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17856,7 +17856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373862594}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0066781584, y: -0.000000017375289, z: 1.1603752e-10, w: 0.9999777}
+  m_LocalRotation: {x: 0.0066781584, y: 0.000000017375292, z: -1.1603755e-10, w: 0.9999777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18416,7 +18416,7 @@ GameObject:
   - component: {fileID: 1435289223}
   - component: {fileID: 1435289222}
   - component: {fileID: 1435289221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: catraca (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18753,7 +18753,7 @@ GameObject:
   - component: {fileID: 1455222513}
   - component: {fileID: 1455222512}
   - component: {fileID: 1455222511}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: catraca (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22199,7 +22199,7 @@ Transform:
   m_GameObject: {fileID: 1691301413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 128.4, y: 16.9, z: -266.31}
+  m_LocalPosition: {x: 127.1, y: 16.9, z: -266.31}
   m_LocalScale: {x: 84.646286, y: 33.202248, z: 2.7641575}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22864,7 +22864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731986730}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.032537416, y: -0.0000000346622, z: 0.000000001128416, w: 0.99947053}
+  m_LocalRotation: {x: 0.032537416, y: 0.0000000346622, z: -0.000000001128416, w: 0.99947053}
   m_LocalPosition: {x: 0, y: 2.0002203, z: -3.3172362}
   m_LocalScale: {x: 1.2389507, y: 1.2389508, z: 1.2389508}
   m_ConstrainProportionsScale: 0
@@ -23539,6 +23539,10 @@ PrefabInstance:
       value: 30.4
       objectReference: {fileID: 0}
     - target: {fileID: -516098083770646512, guid: 98fbaf459dac0774db59cb23f26b463e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -208595431880416365, guid: 98fbaf459dac0774db59cb23f26b463e, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
@@ -28813,7 +28817,7 @@ GameObject:
   - component: {fileID: 2109624374}
   - component: {fileID: 2109624373}
   - component: {fileID: 2109624372}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: catraca (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

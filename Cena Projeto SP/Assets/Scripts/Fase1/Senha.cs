@@ -65,7 +65,6 @@ public class Senha : MonoBehaviour
             {
                 lose.SetActive(true);
             }
-            input = "";
         }
     }
 
