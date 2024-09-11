@@ -106,7 +106,9 @@ public class MovimentoPerso : MonoBehaviour
             somPassos.SetActive(false);
             somAndandoAgua.SetActive(false);
             somCorrendo.SetActive(false);
-            velocidade = 0;
+            if(controller.isGrounded){
+                velocidade = 0;
+            }
         }
 
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) ;

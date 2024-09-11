@@ -14,10 +14,13 @@ public class Senha : MonoBehaviour
     public Text frasesTeclas;
 
     private bool abrirTelaSenha;
+    private bool telaAberta;
 
     public void Sair()
     {
+        input = "";
         painelSenha.SetActive(false);
+        telaAberta = false;
         Cursor.lockState = CursorLockMode.Locked;
         win.SetActive(false);
         lose.SetActive(false);
@@ -40,12 +43,16 @@ public class Senha : MonoBehaviour
 
     void Update()
     {
+        if(telaAberta){
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         if (abrirTelaSenha)
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
                 painelSenha.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
+                telaAberta = true;
             }
         }
     }

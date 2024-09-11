@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Pausar : MonoBehaviour
 {
@@ -11,16 +12,20 @@ public class Pausar : MonoBehaviour
 
     public MovimentoPerso movePerso;
 
+    public Slider volumeJogo;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        volumeJogo.value = AudioListener.volume;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!perdendo){
+            AudioListener.volume = volumeJogo.value;
+
             if(pausado){
                 if(Input.GetKeyDown(KeyCode.Escape)){
                     Despausar();
