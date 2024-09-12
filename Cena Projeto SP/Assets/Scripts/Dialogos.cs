@@ -19,7 +19,8 @@ public class Dialogos : MonoBehaviour
 
     private float tempoIniciarFala = 0f;
 
-    private bool inicioDialogo = false;
+    public bool inicioDialogo = false;
+    public bool fimDialogo;
 
     public string[] dialogo;
 
@@ -72,6 +73,7 @@ public class Dialogos : MonoBehaviour
         inicioDialogo = false;
         tempoIniciarFala = 0f;
         movimentoPerso.emAreaDeFala = false;
+        fimDialogo = true;
     }
 
     void OnTriggerStay(Collider other)

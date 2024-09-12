@@ -47,17 +47,14 @@ public class EntrarLocais : MonoBehaviour
         Vector3 posicaoPlayer = posicaoTeleporte.position;
         player.GetComponent<Transform>().position = posicaoPlayer;
 
-        yield return new WaitForSeconds(1f);
-
-        player.GetComponent<MovimentoPerso>().enabled = true;
-
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         telaTransicaoTeleporte.GetComponent<Animator>().SetInteger("transition", 2);
+        player.GetComponent<MovimentoPerso>().enabled = true;
 
         yield return new WaitForSeconds(2f);
 
-        telaTransicaoTeleporte.SetActive(true);
+        telaTransicaoTeleporte.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
