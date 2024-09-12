@@ -19,8 +19,12 @@ public class CenaConversa : MonoBehaviour
     public GameObject player;
     public GameObject playerConversa;
     public GameObject telaLivroJorge;
+
+    public GameObject telaTransicao;
+    public GameObject textoTempoPassado;
     
     public Dialogos dialogo;
+    public Pausar pause;
 
     private bool fecharLivro = false;
     // Start is called before the first frame update
@@ -72,5 +76,15 @@ public class CenaConversa : MonoBehaviour
         yield return new WaitForSeconds(1f); // Tempo para transição entre as falas
 
         ElementosFalas.SetActive(false);
+        pause.perdendo = true;
+
+        yield return new WaitForSeconds(1f);
+
+        telaTransicao.SetActive(true);
+        telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
+
+        yield return new WaitForSeconds(3f);
+
+        textoTempoPassado.SetActive(true);
     }
 }
