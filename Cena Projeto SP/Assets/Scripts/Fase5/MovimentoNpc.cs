@@ -9,11 +9,15 @@ public class MovimentoNpc : MonoBehaviour
     public float distanciaMinima;
     public float velocidade;
     public Transform player;
+
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         navMesh = GetComponent<NavMeshAgent>();
         navMesh.stoppingDistance = distanciaMinima;
+
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,10 +30,13 @@ public class MovimentoNpc : MonoBehaviour
         if (distancia <= distanciaMinima)
         {
             navMesh.speed = 0;
+            anim.SetBool("andando", false);
+
         }
         else
         {
             navMesh.speed = velocidade;
+            anim.SetBool("andando", true);
         }
     }
 }

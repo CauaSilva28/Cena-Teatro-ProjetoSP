@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 public class CenaConversa : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class CenaConversa : MonoBehaviour
 
     public GameObject telaTransicao;
     public GameObject textoTempoPassado;
+
+    public GameObject ElementosJogo;
+    public GameObject cutsceneFim;
     
     public Dialogos dialogo;
     public Pausar pause;
@@ -83,8 +88,22 @@ public class CenaConversa : MonoBehaviour
         telaTransicao.SetActive(true);
         telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
         textoTempoPassado.SetActive(true);
+
+        yield return new WaitForSeconds(4f);
+
+        textoTempoPassado.SetActive(false);
+        cutsceneFim.SetActive(true);
+        ElementosJogo.SetActive(false);
+        
+        yield return new WaitForSeconds(1f);
+        
+        cutsceneFim.GetComponent<PlayableDirector>().Play();
+    }
+
+    public void VoltarParaMenu(){
+        SceneManager.LoadScene("Menu");
     }
 }
