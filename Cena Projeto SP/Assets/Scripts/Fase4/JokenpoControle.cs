@@ -19,8 +19,10 @@ public class JokenpoControle : MonoBehaviour
     public GameObject txtDerrota;
     public bool acabouJogo = false;
     public Inimigo inimigo;
-    public GameObject areaInvisivel;
     public GameObject brunaAtivar;
+    public GameObject barreiraInicio;
+    public MovimentoPerso movePlayer;
+    public GameObject txtTeclaE;
 
     [SerializeField]
     private Sprite rock_sprite, paper_sprite, scissors_sprite;
@@ -44,22 +46,54 @@ void OnTriggerEnter(Collider other)
 
     void Update(){
          if (pontosPlayer == 3 && !acabouJogo){
-            canva.gameObject.SetActive(false);
-            txtVitoria.gameObject.SetActive(true);
-            acabouJogo = true;
-            Invoke("desativartxt",2);
-            areaInvisivel.SetActive(true);
-            brunaAtivar.SetActive(true);
-            pontosBot=0;
+            StartCoroutine(Ganhou());
             pontosPlayer=0;
+            pontosBot=0;
         }
         if (pontosBot == 3 && !acabouJogo){
-            canva.gameObject.SetActive(false);
-            txtDerrota.gameObject.SetActive(true);
-            Invoke("desativartxt",2);
-            pontosBot=0;
+            StartCoroutine(Perdeu());
             pontosPlayer=0;
+            pontosBot=0;
         }
+    }
+
+    IEnumerator Perdeu(){
+
+        yield return new WaitForSeconds(2f);
+
+        animacaoControle.ResetAnimation();
+        Cursor.lockState = CursorLockMode.Locked;
+
+        yield return new WaitForSeconds(1f);
+
+        txtDerrota.SetActive(true);
+        canva.gameObject.SetActive(false);
+
+        yield return new WaitForSeconds(2f);
+
+        txtDerrota.SetActive(false);
+        movePlayer.emAreaDeFala = false;
+        txtTeclaE.SetActive(true);
+    }
+
+    IEnumerator Ganhou(){
+        yield return new WaitForSeconds(2f);
+
+        txtVitoria.SetActive(true);
+        canva.gameObject.SetActive(false);   
+        Cursor.lockState = CursorLockMode.Locked; 
+
+        yield return new WaitForSeconds(2f);
+
+        acabouJogo = true;
+        txtVitoria.SetActive(false);
+        brunaAtivar.SetActive(true);
+        barreiraInicio.SetActive(false);
+        movePlayer.emAreaDeFala = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        Destroy(gameObject);
     }
     
     void Awake(){
@@ -154,10 +188,7 @@ void OnTriggerEnter(Collider other)
         }
        
     }
-    public void desativartxt(){
-        txtVitoria.gameObject.SetActive(false);
-        txtDerrota.gameObject.SetActive(false);
-    }
+
     IEnumerator DisplayWinnerAndRestart(){
         yield return new WaitForSeconds(1f);
         infoText.gameObject.SetActive(true);

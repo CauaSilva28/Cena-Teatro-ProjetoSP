@@ -15,13 +15,11 @@ public class MovimentoPerso : MonoBehaviour
     private CharacterController controller;
     private Animator anim;
 
-    public Text gosma;
     public Text frasesTela;
 
     public GameObject somPassos;
     public GameObject somCorrendo;
     public GameObject somAndandoAgua;
-    public AudioSource somTrancada;
 
     float rotationSpeed = 150f;
 
@@ -161,32 +159,12 @@ public class MovimentoPerso : MonoBehaviour
     //Fim funções
 
     void OnTriggerEnter(Collider other){
-        if(other.gameObject.CompareTag("Porta")){
-            somTrancada.Play();
-        }
         if(other.gameObject.CompareTag("Agua")){
             naAgua = true;
         }
     }
-
-    void OnTriggerStay(Collider other){
-        if(other.gameObject.CompareTag("GosmaRa")){
-            gosma.enabled = true;
-        }
-        if(other.gameObject.CompareTag("Porta")){
-            frasesTela.text = "Essa sala está trancada";
-            frasesTela.enabled = true;
-        }
-    }
     
     void OnTriggerExit(Collider other){
-        if(other.gameObject.CompareTag("GosmaRa")){
-            gosma.enabled = false;
-        }
-        if(other.gameObject.CompareTag("Porta")){
-            frasesTela.text = "";
-            frasesTela.enabled = false;
-        }
         if(other.gameObject.CompareTag("Agua")){
             naAgua = false;
         }

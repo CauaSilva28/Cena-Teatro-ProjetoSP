@@ -2782,22 +2782,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6544846657058300883, guid: 33a587677a345f849918ca672c0d33fc, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: a0084a5b3f4074a428769ba391eb3a0e, type: 2}
-    - target: {fileID: -6544846657058300883, guid: 33a587677a345f849918ca672c0d33fc, type: 3}
-      propertyPath: 'm_Materials.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2100000, guid: b052953c96520524a82d2d290f72fd0b, type: 2}
-    - target: {fileID: -804731622281664130, guid: 33a587677a345f849918ca672c0d33fc, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: b052953c96520524a82d2d290f72fd0b, type: 2}
-    - target: {fileID: -804731622281664130, guid: 33a587677a345f849918ca672c0d33fc, type: 3}
-      propertyPath: 'm_Materials.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2100000, guid: a0084a5b3f4074a428769ba391eb3a0e, type: 2}
     - target: {fileID: -9165797768001435688, guid: 97701293d386dcf4bada3418a9bff315, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -2874,6 +2858,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: jadeDanca
       objectReference: {fileID: 0}
+    - target: {fileID: -6544846657058300883, guid: 33a587677a345f849918ca672c0d33fc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a0084a5b3f4074a428769ba391eb3a0e, type: 2}
+    - target: {fileID: -6544846657058300883, guid: 33a587677a345f849918ca672c0d33fc, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b052953c96520524a82d2d290f72fd0b, type: 2}
+    - target: {fileID: -804731622281664130, guid: 33a587677a345f849918ca672c0d33fc, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b052953c96520524a82d2d290f72fd0b, type: 2}
+    - target: {fileID: -804731622281664130, guid: 33a587677a345f849918ca672c0d33fc, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a0084a5b3f4074a428769ba391eb3a0e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3980,7 +3980,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e558acf0af956de41b0575b6a941134c, type: 3}
-    m_FontSize: 60
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -4019,7 +4019,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -490.9}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_SizeDelta: {x: 1500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &627870194
 GameObject:
@@ -4951,12 +4951,10 @@ MonoBehaviour:
   camera: {fileID: 1161704226}
   veloCorrendo: 10
   veloAndando: 6
-  gosma: {fileID: 341656162}
   frasesTela: {fileID: 1032878643}
   somPassos: {fileID: 2034017025}
   somCorrendo: {fileID: 382147152}
   somAndandoAgua: {fileID: 1831802242}
-  somTrancada: {fileID: 1609994513}
   textoBarragem: Fale com o atendente
   emAreaDeFala: 0
   pausado: 0
@@ -5063,6 +5061,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e20de85df67db7d4c872eb7b808c7d43, type: 3}
   m_PrefabInstance: {fileID: 1454125617}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &787544061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787544054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00903a770b43dc64b91f9defd51851de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gosma: {fileID: 341656162}
+  frasesTela: {fileID: 1032878643}
+  somTrancada: {fileID: 1609994513}
 --- !u!1 &814439588
 GameObject:
   m_ObjectHideFlags: 0
@@ -5952,7 +5965,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 401.1}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_SizeDelta: {x: 1500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032878643
 MonoBehaviour:
@@ -5976,11 +5989,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e558acf0af956de41b0575b6a941134c, type: 3}
-    m_FontSize: 60
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
-    m_MaxSize: 60
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -7765,7 +7778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402654807}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000045029673, y: 0.9965968, z: 0.0824311, w: -0.000000054441152}
+  m_LocalRotation: {x: 0.000000007339649, y: 0.9965968, z: 0.0824311, w: -0.0000000887368}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8369,6 +8382,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e20de85df67db7d4c872eb7b808c7d43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 787544055}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e20de85df67db7d4c872eb7b808c7d43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 787544061}
   m_SourcePrefab: {fileID: 100100000, guid: e20de85df67db7d4c872eb7b808c7d43, type: 3}
 --- !u!1 &1459039988
 GameObject:
@@ -9330,7 +9346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tela: {fileID: 2029600012}
-  telaTransicao: {fileID: 2029600014}
   fraseTecla: {fileID: 607902069}
 --- !u!1 &1736004230
 GameObject:

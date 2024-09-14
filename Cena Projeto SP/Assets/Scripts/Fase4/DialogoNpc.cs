@@ -1,19 +1,24 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogosNPC : MonoBehaviour
 {
+    [Header("Objetos")]
+    public MovimentoPerso movePerso;
+    public GameObject telaTransicao;
+    public Pausar pauseJogo;
+
     [Header("Diálogo")]
     public string[] dialogueNpc; 
-    public GameObject txtEParaInteragir;
+    public GameObject txtParaInteragir;
 
     [Header("Interface de Diálogo")]
     public GameObject dialoguePanel;
     public Text dialogueText;
     public Text nameNpc;
     public Image imageNpc; 
-    public Sprite spriteNpc;
     public int dialogueIndex = 0;
 
    [Header("Controle de Diálogo")]
@@ -27,11 +32,12 @@ public class DialogosNPC : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && readyToSpeak)
+        if (Input.GetKeyDown(KeyCode.Space) && readyToSpeak)
         {
             if (!startDialogue)
             {
-                StartDialogue(); 
+                StartDialogue();
+                movePerso.emAreaDeFala = true;
             }
             else if (dialogueText.text == dialogueNpc[dialogueIndex])
             {
@@ -51,15 +57,16 @@ public class DialogosNPC : MonoBehaviour
             startDialogue = true;
             dialogueIndex = 0;
             dialoguePanel.SetActive(false);
+            movePerso.emAreaDeFala = false;
+            StartCoroutine(fimDaFase());
         }
     }
 
     public void StartDialogue()
     {
-        txtEParaInteragir.SetActive(false);
+        txtParaInteragir.SetActive(false);
 
         nameNpc.text = nameNpcString; 
-        imageNpc.sprite = spriteNpc; 
         startDialogue = true; 
         dialogueIndex = 0; 
         dialoguePanel.SetActive(true); 
@@ -78,28 +85,42 @@ public class DialogosNPC : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Lari"))
+        if (other.CompareTag("Player"))
         {
             readyToSpeak = true; 
 
             if (!startDialogue)
             {
-                txtEParaInteragir.SetActive(true);
+                txtParaInteragir.SetActive(true);
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Lari"))
+        if (other.CompareTag("Player"))
         {
             readyToSpeak = false; 
 
             if (!startDialogue)
             {
-                txtEParaInteragir.SetActive(false);
+                txtParaInteragir.SetActive(false);
             }
         }
+    }
+
+    IEnumerator fimDaFase(){
+        telaTransicao.SetActive(true);
+        telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
+        pauseJogo.perdendo = true;
+
+        yield return new WaitForSeconds(3f);
+
+        AudioListener.volume = 0;
+
+        yield return new WaitForSeconds(3f);
+
+        SceneManager.LoadScene("Fase5");
     }
 }
 

@@ -5,10 +5,17 @@ using UnityEngine;
 public class Inimigo : MonoBehaviour
 {
     public Transform[] pontosCaminho;  
-    public float speed = 5f;
+    public float speed = 3f;
     private int pontoAtual = 0;  
     private bool chegouNoUltimoPonto = false;
-    public bool podeMover = false;  
+    public bool podeMover = false; 
+
+    private Animator anim;
+
+    void Start(){
+        anim = GetComponent<Animator>();
+    } 
+
     private void Update()
     {
         if (podeMover && pontoAtual < pontosCaminho.Length)
@@ -21,7 +28,8 @@ public class Inimigo : MonoBehaviour
                 if (pontoAtual == pontosCaminho.Length && !chegouNoUltimoPonto)
                 {
                     transform.Rotate(0, 180, 0);
-                    chegouNoUltimoPonto = true; 
+                    chegouNoUltimoPonto = true;
+                    anim.SetBool("andando", false);
                 }
             }
         }
@@ -32,6 +40,7 @@ public class Inimigo : MonoBehaviour
         Vector3 direction = (targetPoint.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
         transform.LookAt(targetPoint);
+        anim.SetBool("andando", true);
     }
 
     private void OnTriggerEnter(Collider other)

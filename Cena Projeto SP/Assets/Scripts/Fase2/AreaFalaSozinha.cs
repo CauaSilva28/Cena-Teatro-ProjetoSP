@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class AreaFalaSozinha : MonoBehaviour
 {
+    public float tempoExibirFala;
+
     public GameObject ElementosFalas;
     public GameObject textoPassarFalas;
     public Text falas;
@@ -43,7 +45,7 @@ public class AreaFalaSozinha : MonoBehaviour
         transicaoFalas.SetInteger("transition", 1);
         transicaoLari.SetInteger("transition", 1);
 
-        yield return new WaitForSeconds(8f); // Tempo para exibir a fala
+        yield return new WaitForSeconds(tempoExibirFala); // Tempo para exibir a fala
 
         transicaoFalas.SetInteger("transition", 2);
         transicaoLari.SetInteger("transition", 2);

@@ -7,14 +7,25 @@ using UnityEngine.UI;
 public class ColisoesFase4 : MonoBehaviour
 {
     public Transform porta;
+    public AudioSource portaFechando;
+    public AudioSource coletandoItem;
     public Transform portaCorredor;
+
     public int itemCount = 0;
     public int totalItems = 3;
+
     public GameObject espadaEstatua;
-    public GameObject BlocoInvisivel;
     public Inimigo inimigo;
     public GameObject canvaJokenpo;
     public GameObject txtTeclaE;
+    public Text textoTela;
+    public GameObject areaFalaComJade;
+    public GameObject areaBrunaDesativar;
+    public GameObject brunaConversaJade;
+    public GameObject telaGameOver;
+    public GameObject Audios;
+    public Pausar pauseJogo;
+
     private bool naAreaJokenpo = false;
 
     void OnTriggerEnter(Collider other)
@@ -23,22 +34,40 @@ public class ColisoesFase4 : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SceneManager.LoadScene("Perdeu");
+            telaGameOver.SetActive(true);
+            pauseJogo.perdendo = true;
+            Audios.SetActive(false);
+            GetComponent<MovimentoPerso>().emAreaDeFala = true;
         }
-        if (other.gameObject.CompareTag("cubo"))
+
+        if (other.gameObject.CompareTag("EnigmaMuseu"))
         {
             porta.eulerAngles = new Vector3(-90, 0, -90);
+            portaFechando.Play();
+            brunaConversaJade.SetActive(true);
             Destroy(other.gameObject);
-            BlocoInvisivel.SetActive(false);
+            textoTela.enabled = true;
+            textoTela.text = "Procure as 3 espadas perdidas da estátua";
         }
+        if (other.gameObject.CompareTag("desativarObjeto"))
+        {
+            brunaConversaJade.SetActive(false);
+            Destroy(other.gameObject);
+        }
+
         if (other.gameObject.tag == "item")
         {
+            coletandoItem.Play();
             Destroy(other.gameObject);
             itemCount++;
 
             if (itemCount >= totalItems)
             {
                 AtivaEspada();
+                textoTela.enabled = false;
+                textoTela.text = "";
+                areaFalaComJade.SetActive(true);
+                areaBrunaDesativar.SetActive(true);
             }
         }
         if (other.gameObject.CompareTag("cmcMover"))
@@ -66,9 +95,13 @@ public class ColisoesFase4 : MonoBehaviour
     {
         if (naAreaJokenpo && Input.GetKeyDown(KeyCode.E))
         {
+            GetComponent<MovimentoPerso>().emAreaDeFala = true;
             canvaJokenpo.SetActive(true);
-            txtTeclaE.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
+        }
+
+        if(canvaJokenpo.activeSelf == true){
+            txtTeclaE.SetActive(false);
         }
     }
     void Start()
@@ -88,10 +121,5 @@ public class ColisoesFase4 : MonoBehaviour
             portaCorredor.eulerAngles = new Vector3(-90, 0, 0);
 
         }
-    }
-    public void TrocarCenaReiniciar()
-    {
-        SceneManager.LoadScene("Fase4");
-
     }
 }

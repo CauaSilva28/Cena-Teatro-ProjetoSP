@@ -17,6 +17,13 @@ TagManager:
   - Agua
   - Parte2
   - DestruirCarro
+  - caixa
+  - Jokenpo
+  - falaBruna
+  - item
+  - cmcMover
+  - EnigmaMuseu
+  - desativarObjeto
   layers:
   - Default
   - TransparentFX

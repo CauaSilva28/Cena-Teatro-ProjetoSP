@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SaidaTeatro : MonoBehaviour
 {
     public GameObject Tela;
-    public Animator telaTransicao;
 
     public Text fraseTecla;
     // Start is called before the first frame update
@@ -27,8 +27,7 @@ public class SaidaTeatro : MonoBehaviour
             fraseTecla.text = "Aperte \"E\" para sair do teatro";
 
             if(Input.GetKey(KeyCode.E)){
-                Tela.SetActive(true);
-                telaTransicao.SetInteger("transition", 2);
+                StartCoroutine(fimDaFase());
             }
         }
     }
@@ -37,5 +36,18 @@ public class SaidaTeatro : MonoBehaviour
             fraseTecla.enabled = false;
             fraseTecla.text = "";
         }
+    }
+
+    IEnumerator fimDaFase(){
+        Tela.SetActive(true);
+        Tela.GetComponent<Animator>().SetInteger("transition", 2);
+
+        yield return new WaitForSeconds(3f);
+
+        AudioListener.volume = 0;
+
+        yield return new WaitForSeconds(3f);
+
+        SceneManager.LoadScene("Fase4");
     }
 }
