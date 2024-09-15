@@ -6,16 +6,15 @@ public class TransicaoTela : MonoBehaviour
 {
     public GameObject tela;
     public Animator telaTransicao;
-
-    private float imperdirRepeticao = 0f;
+    
     // Start is called before the first frame update
     void Start()
     {
+        AudioListener.volume = 1;
         StartCoroutine(tempoTransicaoDaTela());
     }
 
     IEnumerator tempoTransicaoDaTela(){
-        AudioListener.volume = 1;
         telaTransicao.SetInteger("transition", 1);
 
         yield return new WaitForSeconds(2f);

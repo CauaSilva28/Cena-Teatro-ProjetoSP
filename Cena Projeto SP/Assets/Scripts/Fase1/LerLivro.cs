@@ -82,11 +82,11 @@ public class LerLivro : MonoBehaviour
         telaTransicao.SetActive(true);
         telaTransicao.GetComponent<Animator>().SetInteger("transition", 2);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         AudioListener.volume = 0;
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
 
         SceneManager.LoadScene("Fase2");
     }

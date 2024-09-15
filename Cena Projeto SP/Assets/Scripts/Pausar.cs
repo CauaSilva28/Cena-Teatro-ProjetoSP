@@ -17,14 +17,19 @@ public class Pausar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        volumeJogo.value = AudioListener.volume;
+        if(AudioListener.volume == 0){
+            AudioListener.volume = 1;
+        }
+        else{
+            volumeJogo.value = AudioListener.volume;
+        } // AudioListener e o volume geral do jogo, aqui foi igualado ao slider que esta sendo utilizado para determinar seu valor
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!perdendo){
-            AudioListener.volume = volumeJogo.value;
+            AudioListener.volume = volumeJogo.value; // Determinando volume atráves do slider
 
             if(pausado){
                 if(Input.GetKeyDown(KeyCode.Escape)){
@@ -44,7 +49,7 @@ public class Pausar : MonoBehaviour
         movePerso.pausado = true;
         pausado = true;
         pauseMenu.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0; // Responsável por deixar o tempo do jogo parado (= a 0);
         Cursor.lockState = CursorLockMode.None;
     }
 
@@ -53,7 +58,7 @@ public class Pausar : MonoBehaviour
         movePerso.pausado = false;
         pausado = false;
         pauseMenu.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1; // Deixa o jogo no tempo normal (= a 1);
         Cursor.lockState = CursorLockMode.Locked;
     }
 }

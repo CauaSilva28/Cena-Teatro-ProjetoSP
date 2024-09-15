@@ -27,6 +27,8 @@ public class CenaConversa : MonoBehaviour
 
     public GameObject ElementosJogo;
     public GameObject cutsceneFim;
+
+    public GameObject spawnarCarros;
     
     public Dialogos dialogo;
     public Pausar pause;
@@ -82,6 +84,7 @@ public class CenaConversa : MonoBehaviour
 
         ElementosFalas.SetActive(false);
         pause.perdendo = true;
+        Destroy(spawnarCarros);
 
         yield return new WaitForSeconds(1f);
 

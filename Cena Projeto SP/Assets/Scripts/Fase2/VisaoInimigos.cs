@@ -5,9 +5,9 @@ using UnityEngine;
 public class VisaoInimigos : MonoBehaviour
 {
     public Light enemySpotlight;
-    public Color originalColor = Color.white;
-    public Color alertColor = Color.red;
-    public float detectionRange = 10f;
+    public Color originalColor;
+    public Color alertColor;
+    public float detectionRange;
     public GameObject player;
     public LayerMask LayersBloqueadas;
 

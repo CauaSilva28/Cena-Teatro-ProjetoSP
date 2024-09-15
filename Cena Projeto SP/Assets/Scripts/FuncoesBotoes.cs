@@ -14,6 +14,11 @@ public class FuncoesBotoes : MonoBehaviour
     private int numFase;
 
     public void IniciarJogo(){
+        numFase = 0;
+        StartCoroutine(iniciarFase());
+        somClick.Play();
+    }
+    public void IniciarFase1(){
         numFase = 1;
         StartCoroutine(iniciarFase());
         somClick.Play();
