@@ -40,6 +40,9 @@ public class LerLivro : MonoBehaviour
     {
         if (lerLivro)
         {
+            frasesTeclas.enabled = true;
+            frasesTeclas.text = "Aperte \"F\" para ler";
+            
             if (Input.GetKeyDown(KeyCode.F))
             {
                 StartCoroutine(telaIngresso());
@@ -110,8 +113,6 @@ public class LerLivro : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            frasesTeclas.enabled = true;
-            frasesTeclas.text = "Aperte \"F\" para ler";
             lerLivro = true;
         }    
     }
