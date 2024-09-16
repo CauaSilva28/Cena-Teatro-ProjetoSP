@@ -615,9 +615,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\tLarissa\u2026 eu preciso falar com voc\xEA, agora. Me encontre no GF\u2019S
-    DOGS que fica no cal\xE7ad\xE3o de Osasco. Tem algo que voc\xEA precisa saber\u2026
-    \xE9 importante."
+  m_Text: "\tLarissa\u2026 eu preciso falar com voc\xEA e o Joaquim, agora. Me encontre
+    no GF\u2019S DOGS que fica no cal\xE7ad\xE3o de Osasco. Tem algo que voc\xEA
+    precisa saber\u2026 \xE9 importante."
 --- !u!222 &803914200
 CanvasRenderer:
   m_ObjectHideFlags: 0
