@@ -23,6 +23,7 @@ public class JokenpoControle : MonoBehaviour
     public GameObject barreiraInicio;
     public MovimentoPerso movePlayer;
     public GameObject txtTeclaE;
+    public Animator animJade;
 
     [SerializeField]
     private Sprite rock_sprite, paper_sprite, scissors_sprite;
@@ -47,6 +48,7 @@ void OnTriggerEnter(Collider other)
     void Update(){
          if (pontosPlayer == 3 && !acabouJogo){
             StartCoroutine(Ganhou());
+            animJade.SetBool("derrota", true);
             pontosPlayer=0;
             pontosBot=0;
         }

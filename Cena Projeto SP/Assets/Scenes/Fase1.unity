@@ -8697,7 +8697,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4bf92a5176d652e4abd8dfc7a926a7cf, type: 3}
-    m_FontSize: 45
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -18535,7 +18535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497086731}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.02550406, y: 0.00000001750053, z: -4.464798e-10, w: 0.99967474}
+  m_LocalRotation: {x: 0.02550406, y: -0.000000017500527, z: 4.4647971e-10, w: 0.99967474}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

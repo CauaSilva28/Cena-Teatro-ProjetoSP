@@ -1903,7 +1903,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\"Gosma da r\xE3\""
+  m_Text: "\"Muco da r\xE3\""
 --- !u!222 &341656163
 CanvasRenderer:
   m_ObjectHideFlags: 0
