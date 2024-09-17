@@ -63,13 +63,17 @@ public class MovimentoPerso : MonoBehaviour
         }
         else{
             // Desativando sons de passos
-            somPassos.SetActive(false);
-            somAndandoAgua.SetActive(false);
-            somCorrendo.SetActive(false);
+            DesativarSomPassos();
         }
     }
 
     //Funcoes
+
+    public void DesativarSomPassos(){
+        somPassos.SetActive(false);
+        somAndandoAgua.SetActive(false);
+        somCorrendo.SetActive(false);
+    }
 
     private void Movimentacao(){
         if(!emAreaDeFala){ // Faz com que o personagem nao se mova em areas de dialogo
@@ -87,9 +91,7 @@ public class MovimentoPerso : MonoBehaviour
         }
         else{
             anim.SetInteger("transition", 0);
-            somPassos.SetActive(false);
-            somAndandoAgua.SetActive(false);
-            somCorrendo.SetActive(false);
+            DesativarSomPassos();
             if(controller.isGrounded){
                 velocidade = 0;
             }

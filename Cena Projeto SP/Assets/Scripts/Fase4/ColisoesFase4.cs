@@ -24,7 +24,9 @@ public class ColisoesFase4 : MonoBehaviour
     public GameObject brunaConversaJade;
     public GameObject telaGameOver;
     public GameObject Audios;
+    public GameObject elementosJokenpo;
     public Pausar pauseJogo;
+    public JokenpoControle jokenpoScript;
 
     private bool naAreaJokenpo = false;
 
@@ -77,11 +79,14 @@ public class ColisoesFase4 : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Jokenpo"))
         {
-            txtTeclaE.SetActive(true);
-            naAreaJokenpo = true;
+            if(!jokenpoScript.acabouJogo){
+                txtTeclaE.SetActive(true);
+                naAreaJokenpo = true;
+            }
         }
 
     }
+    
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Jokenpo"))
@@ -93,15 +98,19 @@ public class ColisoesFase4 : MonoBehaviour
 
     void Update()
     {
-        if (naAreaJokenpo && Input.GetKeyDown(KeyCode.E))
-        {
-            GetComponent<MovimentoPerso>().emAreaDeFala = true;
-            canvaJokenpo.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-        }
+        if(!jokenpoScript.acabouJogo){
+            if (naAreaJokenpo && Input.GetKeyDown(KeyCode.E))
+            {
+                gameObject.SetActive(false);
+                elementosJokenpo.SetActive(true);
+                canvaJokenpo.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+            }
 
-        if(canvaJokenpo.activeSelf == true){
-            txtTeclaE.SetActive(false);
+            if(canvaJokenpo.activeSelf == true){
+                txtTeclaE.SetActive(false);
+                naAreaJokenpo = false;
+            }
         }
     }
     void Start()

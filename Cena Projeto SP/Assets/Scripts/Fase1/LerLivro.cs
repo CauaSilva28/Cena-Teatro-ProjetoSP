@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LerLivro : MonoBehaviour
 {
-    public GameObject cameraPerso;
     public GameObject cameraEscritorio;
     public GameObject Player;
+    public GameObject PlayerEscritorio;
 
     public Text frasesTeclas;
 
@@ -38,16 +38,10 @@ public class LerLivro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lerLivro)
+        if (lerLivro && Input.GetKeyDown(KeyCode.F))
         {
-            frasesTeclas.enabled = true;
-            frasesTeclas.text = "Aperte \"F\" para ler";
-            
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                StartCoroutine(telaIngresso());
-                lerLivro = false;
-            }
+            StartCoroutine(telaIngresso());
+            lerLivro = false;
         }
 
         if (livroAberto && !impedirVariasFalas && Input.GetKeyDown(KeyCode.F))
@@ -95,13 +89,10 @@ public class LerLivro : MonoBehaviour
     }
 
     IEnumerator telaIngresso(){
-        cameraPerso.SetActive(false);
+        Player.SetActive(false);
+        PlayerEscritorio.SetActive(true);
         cameraEscritorio.SetActive(true);
         telaLivro.SetActive(true);
-        Player.GetComponent<Animator>().SetInteger("transition", 0);
-        Player.GetComponent<MovimentoPerso>().enabled = false;
-        Player.GetComponent<Transform>().position = posicaoLendo.position;
-        Player.GetComponent<Rigidbody>().isKinematic = true;
         frasesTeclas.enabled = false;
         frasesTeclas.text = "";
 
@@ -114,6 +105,8 @@ public class LerLivro : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            frasesTeclas.enabled = true;
+            frasesTeclas.text = "Aperte \"F\" para ler";
             lerLivro = true;
         }    
     }
