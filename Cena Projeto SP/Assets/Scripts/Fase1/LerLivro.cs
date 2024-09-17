@@ -98,6 +98,7 @@ public class LerLivro : MonoBehaviour
         cameraPerso.SetActive(false);
         cameraEscritorio.SetActive(true);
         telaLivro.SetActive(true);
+        Player.GetComponent<Animator>().SetInteger("transition", 0);
         Player.GetComponent<MovimentoPerso>().enabled = false;
         Player.GetComponent<Transform>().position = posicaoLendo.position;
         Player.GetComponent<Rigidbody>().isKinematic = true;

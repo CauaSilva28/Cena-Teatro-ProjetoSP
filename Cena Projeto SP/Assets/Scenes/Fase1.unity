@@ -10489,7 +10489,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915906579}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05134917, y: -0.000000017317406, z: 8.9040914e-10, w: 0.9986808}
+  m_LocalRotation: {x: 0.05134917, y: 0.000000017317406, z: -8.9040914e-10, w: 0.9986808}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11142,7 +11142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941566953}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.07729945, y: -0.000000017154898, z: 0.000000001330044, w: 0.99700797}
+  m_LocalRotation: {x: 0.07729945, y: 0.000000017154898, z: -0.000000001330044, w: 0.99700797}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18954,7 +18954,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Acho que est\xE1 batida da m\xFAsica tem a ver com a senha..."
+  m_Text: "Acho que a batida da m\xFAsica tem a ver com a senha..."
 --- !u!1 &1528026538
 GameObject:
   m_ObjectHideFlags: 0
@@ -21043,7 +21043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663075635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.051349185, y: -0.000000034634816, z: 0.0000000017808185, w: 0.9986808}
+  m_LocalRotation: {x: 0.051349185, y: 0.000000034634816, z: -0.0000000017808185, w: 0.9986808}
   m_LocalPosition: {x: 0, y: 1.7537163, z: -2.9084256}
   m_LocalScale: {x: 1.2389507, y: 1.2389508, z: 1.2389508}
   m_ConstrainProportionsScale: 0

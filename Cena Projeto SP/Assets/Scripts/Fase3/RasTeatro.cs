@@ -30,7 +30,7 @@ public class RasTeatro : MonoBehaviour
         "Não se faça de desentendida!",
         "Você não pode me acusar desse jeito sem provas.",
         "Você está deixando mucos verdes por toda parte.",
-        "Esses mucos verdes podem ser de qualquer um, se ta tão desconfiada, vamos até o Museu do Ipiranga para eu te mostrar algo.",
+        "Esses mucos verdes podem ser de qualquer um, se esta tão desconfiada, vamos até o Museu do Ipiranga para eu te mostrar algo.",
         "Por que eu iria?",
         "Acredito que lá você verá o que está procurando."
     };
