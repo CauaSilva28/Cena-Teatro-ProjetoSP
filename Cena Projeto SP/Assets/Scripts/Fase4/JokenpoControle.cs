@@ -25,6 +25,9 @@ public class JokenpoControle : MonoBehaviour
     public Animator animJade;
     public Animator animLari;
 
+    public Text pontos;
+    public Text pontosInimigos;
+
     [SerializeField]
     private Sprite rock_sprite, paper_sprite, scissors_sprite;
 
@@ -38,7 +41,10 @@ public class JokenpoControle : MonoBehaviour
     private ControleAnimacao animacaoControle; 
 
     void Update(){
-         if (pontosPlayer == 3 && !acabouJogo){
+        pontos.text = "Larissa: " + pontosPlayer + "/3";
+        pontosInimigos.text = "Jade: " + pontosBot + "/3";
+
+        if (pontosPlayer == 3 && !acabouJogo){
             StartCoroutine(Ganhou());
             animJade.SetBool("derrota", true);
             animJade.SetBool("jokenpo", false);
