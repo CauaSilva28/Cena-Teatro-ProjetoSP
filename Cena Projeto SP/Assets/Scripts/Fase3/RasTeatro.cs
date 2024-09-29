@@ -73,8 +73,6 @@ public class RasTeatro : MonoBehaviour
             transicaoFalas.SetInteger("transition", 1);
             animarElementos[i].SetInteger("transition", 1);
 
-            yield return new WaitForSeconds(2f); // Tempo para exibir a fala
-
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space)); // Espera até que o jogador pressione a tecla Espaço
 
             transicaoFalas.SetInteger("transition", 2);
